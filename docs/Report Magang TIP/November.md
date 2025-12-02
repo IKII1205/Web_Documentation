@@ -87,3 +87,15 @@ Mengikuti kegiatan survey pengabdian masyarakat di desa Cimaragas yaitu bertema 
 
 # 17/11/2025
 Setelah melakukan zoom meeting oleh Bapak Bryan dan Ibu indah pada tanggal 13/11/2025, pada hari ini saya melanjutkan roadmap kegiatan saya yaitu membuat dan merancang blok diagram untuk skema simulasi project FSO saya yang untuk hari ini saya memperadalam pengetahuan saya seputar 
+
+# 18/11/2025
+Melanjutkan mencari dokumentasi seputar Free Space optic yang mana saya menemukan beberapa cara untuk melakukan simulasi free space optic antara lain menggunakan modul laser dan esp 32 sebagai PRBS (pseudo random bit sequens yang mana sebagai peng input data)
+
+# 19/11/2025
+Melakukan Monitoring evaluasi dengan dosen pembimbing akademik dengan bapak Iqbal Selaku dosen Fakultas Ilmu Terapan dimana kegiatan ini merupakan report mahasiswa program magang dua semester kepada dosen fakultas guna mengetahui seluruh kegiatan yang dilakukan dan sudah sejauh apa progresnya.
+
+# 20/11/2025
+pada hari ini saya membuat laporan pengajuan pengadaan terkait software OcNOS untuk keberlanjutan Open Optical Network, ditambah setelah saya selesai mengerjakannya saya melanjutkan mencari seputar Free Space Optik lebih tepatnya terkait kegunaan simulasi Free Space optik
+
+
+

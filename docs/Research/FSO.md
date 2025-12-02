@@ -1,6 +1,6 @@
 --- 
 title: FSO
-parent: Hardware
+parent: Research
 author: Muhammad Rizki Akbar 
 nav_order: 1
 permalink: /Hardware/FSO/
@@ -49,7 +49,7 @@ Terdiri dari tiga komponen utama:
 
 
 
--> [Link youtube penjelesan FSO](https://youtu.be/kJyDBmvBVz4?si=fJ9FG1CFXqPB46u_)
+-> [Link video penjelesan FSO](https://youtu.be/kJyDBmvBVz4?si=fJ9FG1CFXqPB46u_)
 
 -> [Link jurnal penjelesan FSO](https://sci-hub.se/https://doi.org/10.1155/2015/945483)
 
@@ -57,4 +57,9 @@ Terdiri dari tiga komponen utama:
 
 -> [Link jurnal  Free-Space Optical Communication Through Atmospheric Turbulence Channels](https://ee.stanford.edu/~jmk/pubs/trans.com.ml.det.turb.pdf)
 
--> [Link website penjelasan Free-Space Optical](https://youtu.be/K0mqoDKdl-4)
+-> [Link video penjelasan Free-Space Optical](https://youtu.be/K0mqoDKdl-4)
+
+-> [Link website penjelasan Free-Space Optical](https://www.rfwireless-world.com/terminology/light-sensor-advantages-disadvantages)
+
+-> [Link website penjelasan Free-Space Optical](https://www.researchgate.net/publication/384464261_Free_Space_Optics)
+

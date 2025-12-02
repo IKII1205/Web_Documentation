@@ -19,7 +19,7 @@ Pada bagian ini, kita akan membahas **software OcNOS** yang telah terpasang pada
 Software OcNOS berperan sebagai sistem operasi jaringan (Network Operating System) yang digunakan untuk mengelola fungsi-fungsi switching, routing, dan manajemen jaringan secara keseluruhan.
 
 Sebelum melanjutkan, kamu dapat membaca pengantar terkait perangkat **Cassini dan DCSG** pada halaman berikut:  
---> [Cassini & DCSG]({{ site.baseurl }}/docs/Hardware/Cassini%20&%20DCSG/)
+--> [Cassini & DCSG]({{ site.baseurl }}/docs/Research/Cassini%20&%20DCSG/)
 
 ---
 

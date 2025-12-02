@@ -1,6 +1,6 @@
 ---
 title: Cassini & DCSG
-parent: Hardware
+parent: Research
 author: Muhammad Rizki Akbar 
 nav_order: 1
 ---
