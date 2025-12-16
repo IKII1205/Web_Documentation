@@ -98,4 +98,14 @@ Melakukan Monitoring evaluasi dengan dosen pembimbing akademik dengan bapak Iqba
 pada hari ini saya membuat laporan pengajuan pengadaan terkait software OcNOS untuk keberlanjutan Open Optical Network, ditambah setelah saya selesai mengerjakannya saya melanjutkan mencari seputar Free Space Optik lebih tepatnya terkait kegunaan simulasi Free Space optik
 
 
-
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025
+# 20/11/2025

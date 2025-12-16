@@ -5,3 +5,12 @@
 {% endif %}
 
 <div class="search-overlay"></div>
+<style>
+  /* Hide Just the Docs branding in search footer */
+  .search-results ~ div a {
+    display: none !important;
+  }
+  .search-results ~ div {
+    display: none !important;
+  }
+</style>

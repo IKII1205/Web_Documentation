@@ -60,7 +60,7 @@ Perbedaan simplex vs duplex:
 - Gunakan connector dan splice berkualitas; pembersihan konektor penting untuk menghindari refleksi dan loss.
 - Label setiap serat dengan jelas sehingga arah transmisi diketahui (penting untuk duplex).
 - Gunakan pelindung (armoring) atau ducting jika kabel ditanam atau di-area luar ruangan.
-
+ 
 
 ## Referensi & bacaan lanjutan
 -> [datasheet YSP96](https://www.bing.com/search?qs=UT&pq=apa+itu+kabel+serat+opti&sk=CSYN1&sc=15-24&pglt=2339&q=apa+itu+kabel+serat+optik&cvid=f2378f89e53d48a8a2a79318c4ca0fd2&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQg2MDk0ajBqMagCALACAA&FORM=ANNTA1&PC=ASTS)
