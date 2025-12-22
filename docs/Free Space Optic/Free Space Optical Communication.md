@@ -1,6 +1,6 @@
 --- 
-title: FSO
-parent: Research
+title: Free Space Optical Communication
+parent: Free Space Optic
 author: Muhammad Rizki Akbar 
 nav_order: 1
 permalink: /Hardware/FSO/

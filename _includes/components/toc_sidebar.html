@@ -1,0 +1,20 @@
+{%- comment -%}
+  Include as: {%- include components/toc_sidebar.html -%}
+  Generates a right sidebar with table of contents
+{%- endcomment -%}
+
+{%- if page.has_toc != false -%}
+  <aside class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-sidebar-content">
+      <div class="toc-header">
+        <span class="toc-title">On this page</span>
+      </div>
+      
+      {%- if page.toc -%}
+        <nav class="toc-nav">
+          {{ page.toc }}
+        </nav>
+      {%- endif -%}
+    </div>
+  </aside>
+{%- endif -%}

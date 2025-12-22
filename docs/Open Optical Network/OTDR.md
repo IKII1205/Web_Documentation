@@ -1,6 +1,6 @@
 --- 
 title: OTDR
-parent: Research
+parent: Open Optical Network
 author: Muhammad Rizki Akbar 
 nav_order: 1
 permalink: /Hardware/OTDR/

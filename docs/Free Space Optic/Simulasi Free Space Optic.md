@@ -1,6 +1,6 @@
 --- 
 title: Simulasi Free Space optic
-parent: Research
+parent: Free Space Optic
 author: Muhammad Rizki Akbar 
 nav_order: 1
 ---

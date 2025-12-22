@@ -39,6 +39,7 @@ Berikut beberapa proyek yang telah saya dokumentasikan:
 | 2  | **Tempat Sampah Otomatis Berbasis IoT**                               | Sistem tempat sampah otomatis yang dilengkapi sensor gas, jarak, dan ultrasonik untuk mendeteksi keberadaan sampah serta buzzer sebagai alarm saat mendeteksi asap atau gas berbahaya. |
 | 3  | **Pelatihan Fullstack Developer**                                     | Mengikuti pelatihan pengembangan web secara menyeluruh (frontend hingga backend) untuk memperdalam kemampuan dalam membangun aplikasi berbasis web.                                    |
 | 4  | **Konfigurasi Cassini & DCSG untuk Open Optical Network**             | Melakukan konfigurasi perangkat Cassini dan DCSG untuk pengujian dan penerapan jaringan optik terbuka berbasis sistem terbuka (Open Optical Networking).                               |
+| 5  | **Pengembangan dan uji coba Free space optic**             | Melakukan riset dan perancangan purwarupa sistem Free Space Optics (FSO) melalui simulasi serta uji coba langsung untuk menganalisis efektivitas transmisi data berkecepatan tinggi dan stabilitas sinyal pada berbagai kondisi lingkungan sebagai solusi alternatif infrastruktur jaringan nirkabel.                               |
 
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: Cassini & DCSG
-parent: Research
+parent: Open Optical Network
 author: Muhammad Rizki Akbar 
 nav_order: 1
 ---

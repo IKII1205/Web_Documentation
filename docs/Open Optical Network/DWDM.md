@@ -1,6 +1,6 @@
 ---
 title: DWDM
-parent: Research
+parent: Open Optical Network
 author: Muhammad Rizki Akbar 
 nav_order: 1
 ---
@@ -30,6 +30,9 @@ Pengaplikasian:
 
 # Penjelasan dari web ini beraasal dari sumber 
 -> [Klik untuk lihat datasheet](https://blog.ionnetwork.co.id/dwdm-adalah/)
+
 -> [Klik untuk lihat datasheet](https://bacolah.com/apa-itu-dwdm-dense-wavelength-division-multiplexing/)
+
 -> [Klik untuk lihat datasheet](https://youtu.be/ouAiOheXJ-s?si=IMsRraJN8QweEi7-)
+
 -> [Klik untuk lihat datasheet](https://www.youtube.com/watch?v=hpJ47LWMmCA)

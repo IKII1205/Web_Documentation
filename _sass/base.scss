@@ -11,8 +11,15 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 
   @include fs-4;
+
+  @include mq(md) {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 body {
@@ -22,6 +29,15 @@ body {
   color: $body-text-color;
   background-color: $body-background-color;
   overflow-wrap: break-word;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  @include mq(md) {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 ol,

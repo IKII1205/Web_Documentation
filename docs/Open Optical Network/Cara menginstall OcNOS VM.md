@@ -1,6 +1,6 @@
 ---
 title: Cara menginstall OcNOS VM
-parent: Software
+parent: Open Optical Network
 author: Muhammad Rizki Akbar 
 nav_order: 1
 ---
