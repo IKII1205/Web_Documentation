@@ -1,0 +1,3 @@
+// Adjust sidebar/nav width to be flexible (resizable across breakpoints)
+$nav-width: clamp(16rem, 22vw, 22rem);
+$nav-width-md: clamp(15rem, 20vw, 20rem);
