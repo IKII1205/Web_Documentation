@@ -7,17 +7,31 @@ permalink: /Hardware/FSO/
 ---
 
 # Apa itu Free Space Optic
-FSO (Free Space Optic) Merupakan teknologi yang melibatkkan transmisi informasi melalui udara menggunakan sinar laser, yang mana FSO ini dapat digunakan untuk mengirimkan informasi dari :
- -> Satelit ke penerima darat
+FSO (Free Space Optic) merupakan teknologi yang melibatkan transmisi informasi melalui udara menggunakan sinar laser. FSO dapat digunakan untuk mengirimkan informasi dari:
 
- -> Antar satelit
+-> Satelit ke penerima darat
 
- -> Antara pemancar di darat ke penerima lain di darat
+-> Antar satelit
 
-## Adapun cara kerja dari FSO adalah
+-> Antara pemancar di darat ke penerima lain di darat
+
+## Komponen yang kami gunakan
+Transmitter:
+1. KY-008
+2. CHT1230
+
+Receiver:
+1. Photoresistor
+2. OPT101
+
+## Mekanisme modulasi yang digunakan
+1. PWM
+2. OOK
+
+## Cara kerja dari FSO
 ![FSO]({{ site.baseurl }}/assets/images/FSO1.webp)
 
-Terdiri dari tiga komponen utama: 
+Terdiri dari tiga komponen utama:
 
 -> Pemancar: Ini termasuk encoder sumber data, Light Emitting Diode (LED) atau Laser Diode (LD), dan lensa atau cermin.
 
@@ -25,7 +39,7 @@ Terdiri dari tiga komponen utama:
 
 -> Penerima: Ini terdiri dari fotodetektor, prosesor sinyal, dan dekoder.
 
-## Adapun keunggulan dari FSO ini adalah :
+## Adapun keunggulan dari FSO ini adalah:
 -> Akses internet cepat dan andal yang mana FSO ini memungkinkan internet cepat dan andal ke lokasi yang sulit di jangkau
 
 -> Bandwidth (kapasitas maksimum dari jalur komunikasi untuk mentransfer data dalam satuan waktu tertentu, biasanya diukur dalam bit per detik (bps)) jauh lebih lebar 
@@ -38,7 +52,7 @@ Terdiri dari tiga komponen utama:
 
 -> Kekebalan terhadap EMI: Karena merupakan teknologi optik, ia kebal terhadap interferensi elektromagnetik (EMI).
 
-## Adapun kekurangan dari FSO adalah: 
+## Adapun kekurangan dari FSO adalah:
 -> Ketergantungan Atmosfer: Ini adalah kelemahan terbesar. Kabut adalah peredam sinyal utama, karena tetesan air kecil menyebar dan menyerap cahaya, mengurangi jangkauan secara drastis. Hujan, salju, dan kabut asap juga memengaruhi kinerja.
 
 -> Persyaratan LOS: Jalur harus benar-benar tidak terhalang. Burung, pohon, atau konstruksi dapat memblokir tautan untuk sementara.
@@ -49,6 +63,7 @@ Terdiri dari tiga komponen utama:
 
 
 
+## Refrensi yang saya gunakan
 -> [Link video penjelesan FSO](https://youtu.be/kJyDBmvBVz4?si=fJ9FG1CFXqPB46u_)
 
 -> [Link jurnal penjelesan FSO](https://sci-hub.se/https://doi.org/10.1155/2015/945483)

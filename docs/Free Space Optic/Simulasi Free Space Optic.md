@@ -1,5 +1,5 @@
 --- 
-title: Simulasi Free Space optic
+title: Simulasi FSO menggunakan modul IR
 parent: Free Space Optic
 author: Muhammad Rizki Akbar 
 nav_order: 1
