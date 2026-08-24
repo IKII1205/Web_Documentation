@@ -1,8 +1,9 @@
 ---
 title: Free Space Optic
-nav_order: 4
+nav_order: 2
+has_children: true
 ---
 
-# Daftar Research seputar free space optic
+# Daftar Riset Free Space Optic (FSO)
 
-Berikut adalah dokumentasi Software yang tersedia:
+Berikut adalah dokumentasi dan riset seputar Free Space Optical Communication yang tersedia:

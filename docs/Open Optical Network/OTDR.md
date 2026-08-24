@@ -2,13 +2,29 @@
 title: OTDR
 parent: Open Optical Network
 author: Muhammad Rizki Akbar 
-nav_order: 1
+nav_order: 5
 permalink: /Hardware/OTDR/
 ---
 
-# Apa itu OTDR 
-# Apa Fungsi Dari OTDR itu sendiri?
-# Bagaimana cara mengoprasikan OTDR
+# Panduan & Pengoperasian OTDR
+
+## Apa itu OTDR?
+**OTDR (*Optical Time-Domain Reflectometer*)** adalah alat optoelektronik yang digunakan untuk mengkarakterisasi dan menguji kualitas kabel serat optik. OTDR bekerja dengan mengirimkan pulsa cahaya ke dalam inti serat dan menganalisis pantulan cahaya (*backscattering* dan *fresnel reflection*) yang kembali.
+
+---
+
+## Fungsi Utama OTDR
+- Mengukur panjang total bentangan kabel fiber optik.
+- Mengukur redaman total (*attenuation*) dan redaman per kilometer (dB/km).
+- Mengukur rugi-rugi sambungan (*splice loss*) dan rugi-rugi konektor (*connector loss*).
+- Mendeteksi titik putus (*fiber cut*), tekukan ekstrem (*macro-bending*), atau cacat fisik pada kabel.
+
+---
+
+## Dokumentasi Visual Langkah Pengoperasian OTDR
+
+Berikut adalah dokumentasi visual pengoperasian alat dan pembacaan grafik kurva OTDR:
+
 ![gambarOTDR1]({{ site.baseurl }}/assets/images/gambarOTDR1.jpg)
 ![gambarOTDR2]({{ site.baseurl }}/assets/images/gambarOTDR2.jpg)
 ![gambarOTDR3]({{ site.baseurl }}/assets/images/gambarOTDR3.jpg)

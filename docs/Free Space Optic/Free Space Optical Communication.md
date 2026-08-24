@@ -7,74 +7,68 @@ permalink: /Hardware/FSO/
 ---
 
 # Apa itu Free Space Optic
-FSO (Free Space Optic) merupakan teknologi yang melibatkan transmisi informasi melalui udara menggunakan sinar laser. FSO dapat digunakan untuk mengirimkan informasi dari:
 
--> Satelit ke penerima darat
+FSO (*Free Space Optics*) merupakan teknologi komunikasi nirkabel optik yang mentransmisikan data melalui udara menggunakan berkas cahaya (sinar laser / inframerah). FSO dapat digunakan untuk komunikasi data:
 
--> Antar satelit
+- Satelit ke penerima darat (ground station)
+- Antar satelit (*inter-satellite links*)
+- Pemancar di darat ke penerima lain di darat (*terrestrial point-to-point*)
 
--> Antara pemancar di darat ke penerima lain di darat
+---
 
-## Komponen yang kami gunakan
-Transmitter:
-1. KY-008
-2. CHT1230
+## Komponen yang Digunakan
 
-Receiver:
-1. Photoresistor
-2. OPT101
+### Transmitter (Pemancar)
+1. **KY-008** (Modul Laser Diode)
+2. **CHT1230**
 
-## Mekanisme modulasi yang digunakan
-1. PWM
-2. OOK
+### Receiver (Penerima)
+1. **Photoresistor (LDR)**
+2. **OPT101** (Monolithic Photodiode with On-Chip Transimpedance Amplifier)
 
-## Cara kerja dari FSO
+---
+
+## Mekanisme Modulasi
+1. **PWM** (*Pulse Width Modulation*)
+2. **OOK** (*On-Off Keying*)
+
+---
+
+## Cara Kerja FSO
+
 ![FSO]({{ site.baseurl }}/assets/images/FSO1.webp)
 
-Terdiri dari tiga komponen utama:
+Sistem FSO terdiri dari tiga blok utama:
+- **Pemancar (*Transmitter*):** Terdiri dari *source encoder*, Light Emitting Diode (LED) atau Laser Diode (LD), dan lensa optik/cermin pemfokus.
+- **Saluran Transmisi (*Channel*):** Ruang bebas / atmosfer (udara) tempat berkas cahaya merambat.
+- **Penerima (*Receiver*):** Terdiri dari lensa pengumpul, fotodetektor (*photodiode*), pengkondisi sinyal/penguat (*amplifier*), dan dekoder.
 
--> Pemancar: Ini termasuk encoder sumber data, Light Emitting Diode (LED) atau Laser Diode (LD), dan lensa atau cermin.
+---
 
--> Saluran: Ini adalah ruang bebas (udara) di mana sinar laser bergerak. 
+## Keunggulan FSO
+- **Akses Internet Berkecepatan Tinggi:** Menyediakan bandwidth lebar untuk lokasi yang sulit dijangkau kabel optik konvensional (*last-mile connectivity*).
+- **Bandwidth Sangat Lebar:** Mampu mentransfer data berkecepatan tinggi dalam orde Gbps.
+- **Bebas Biaya Lisensi Spektrum:** Beroperasi pada frekuensi optik non-teregulasi, sehingga tidak memerlukan biaya perizinan spektrum seperti gelombang radio (RF).
+- **Keamanan Tinggi:** Berkas cahaya yang sangat terfokus (*narrow beam*) sangat sulit disadap atau diintersep.
+- **Penerapan Cepat:** Instalasi jauh lebih cepat dan hemat biaya karena tidak memerlukan galian tanah untuk menggelar kabel fiber fisik.
+- **Kebal terhadap EMI:** Karena menggunakan medium cahaya, transmisi kebal terhadap interferensi elektromagnetik dan interferensi sinyal radio.
 
--> Penerima: Ini terdiri dari fotodetektor, prosesor sinyal, dan dekoder.
+---
 
-## Adapun keunggulan dari FSO ini adalah:
--> Akses internet cepat dan andal yang mana FSO ini memungkinkan internet cepat dan andal ke lokasi yang sulit di jangkau
+## Tantangan & Kekurangan FSO
+- **Pengaruh Kondisi Atmosfer:** Kabut tebal (*fog*) adalah peredam sinyal terbesar karena droplet air membiaskan dan menyerap cahaya. Hujan lebat, debu, salju, dan asap juga dapat menurunkan daya sinyal (*attenuation*).
+- **Persyaratan Line-of-Sight (LOS):** Jalur antara pemancar dan penerima harus benar-benar bebas rintangan (tidak boleh terhalang pohon, gedung, burung, dsb).
+- **Jarak Transmisi Terbatas:** Untuk aplikasi darat, jarak efektif biasanya berkisar dari beberapa ratus meter hingga beberapa kilometer tergantung visibilitas.
+- **Stabilitas Penyelarasan (*Alignment*):** Memerlukan akurasi sudut pancaran dan penerimaan yang presisi. Goyangan struktur gedung atau getaran tiang dapat menggeser fokus berkas cahaya.
 
--> Bandwidth (kapasitas maksimum dari jalur komunikasi untuk mentransfer data dalam satuan waktu tertentu, biasanya diukur dalam bit per detik (bps)) jauh lebih lebar 
+---
 
--> Bebas Lisensi: FSO beroperasi pada spektrum yang tidak diatur, menghilangkan kebutuhan akan biaya lisensi mahal seperti pada teknologi Frekuensi Radio (RF).
-
--> Keamanan: Berkas laser yang sangat sempit dan terarah membuatnya sangat sulit untuk disadap atau didengarkan dibandingkan sinyal nirkabel siaran.
-
--> Penerapan Cepat: Pemasangan sistem FSO relatif cepat dan mudah dibandingkan dengan menggali parit untuk serat.
-
--> Kekebalan terhadap EMI: Karena merupakan teknologi optik, ia kebal terhadap interferensi elektromagnetik (EMI).
-
-## Adapun kekurangan dari FSO adalah:
--> Ketergantungan Atmosfer: Ini adalah kelemahan terbesar. Kabut adalah peredam sinyal utama, karena tetesan air kecil menyebar dan menyerap cahaya, mengurangi jangkauan secara drastis. Hujan, salju, dan kabut asap juga memengaruhi kinerja.
-
--> Persyaratan LOS: Jalur harus benar-benar tidak terhalang. Burung, pohon, atau konstruksi dapat memblokir tautan untuk sementara.
-
--> Jarak Terbatas: Tautan FSO terestrial biasanya terbatas pada beberapa ratus meter hingga beberapa kilometer.
-
--> Masalah Penyelarasan: Mempertahankan penyelarasan yang tepat antara dua unit optik sangat penting dan dapat menjadi tantangan karena goyangan bangunan atau turbulensi atmosfer.
-
-
-
-## Refrensi yang saya gunakan
--> [Link video penjelesan FSO](https://youtu.be/kJyDBmvBVz4?si=fJ9FG1CFXqPB46u_)
-
--> [Link jurnal penjelesan FSO](https://sci-hub.se/https://doi.org/10.1155/2015/945483)
-
--> [Link website penjelesan FSO](https://www.rfwireless-world.com/terminology/free-space-optics-fso-advantages-disadvantages)
-
--> [Link jurnal  Free-Space Optical Communication Through Atmospheric Turbulence Channels](https://ee.stanford.edu/~jmk/pubs/trans.com.ml.det.turb.pdf)
-
--> [Link video penjelasan Free-Space Optical](https://youtu.be/K0mqoDKdl-4)
-
--> [Link website penjelasan Free-Space Optical](https://www.rfwireless-world.com/terminology/light-sensor-advantages-disadvantages)
-
--> [Link website penjelasan Free-Space Optical](https://www.researchgate.net/publication/384464261_Free_Space_Optics)
+## Referensi & Bacaan Lanjutan
+- [Video: Penjelasan Konsep FSO (YouTube)](https://youtu.be/kJyDBmvBVz4?si=fJ9FG1CFXqPB46u_)
+- [Jurnal: Free-Space Optical Communication Overview](https://sci-hub.se/https://doi.org/10.1155/2015/945483)
+- [Artikel: FSO Advantages & Disadvantages - RF Wireless World](https://www.rfwireless-world.com/terminology/free-space-optics-fso-advantages-disadvantages)
+- [Jurnal: FSO Through Atmospheric Turbulence Channels (Stanford)](https://ee.stanford.edu/~jmk/pubs/trans.com.ml.det.turb.pdf)
+- [Video: Prinsip Dasar Free-Space Optical (YouTube)](https://youtu.be/K0mqoDKdl-4)
+- [Artikel: Sensor Cahaya pada Sistem Optik](https://www.rfwireless-world.com/terminology/light-sensor-advantages-disadvantages)
+- [Publikasi Riset: Free Space Optics (ResearchGate)](https://www.researchgate.net/publication/384464261_Free_Space_Optics)
 

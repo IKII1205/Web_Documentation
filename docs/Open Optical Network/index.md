@@ -1,8 +1,9 @@
 ---
 title: Open Optical Network
 nav_order: 4
+has_children: true
 ---
 
-# Daftar Research seputar Open optical network
+# Daftar Riset seputar Open Optical Network
 
-Berikut adalah dokumentasi Research yang tersedia:
+Berikut adalah dokumentasi Open Optical Network (OON), perangkat optik, dan konfigurasi OcNOS yang tersedia:

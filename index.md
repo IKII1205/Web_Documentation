@@ -8,7 +8,7 @@ permalink: /
 
 # 👋 Selamat Datang di Dokumentasi Proyek Muhammad Rizki Akbar
 
-Halo! Saya **Muhammad Rizki Akbar**, mahasiswa D3 Teknik Telekomunikasi di **Telkom University**.  
+Halo! Saya **Muhammad Rizki Akbar**, mahasiswa D3 Teknik Telekomunikasi di **Telkom University Bandung**.  
 Website ini berisi kumpulan dokumentasi dari berbagai proyek, eksperimen, dan pembelajaran saya di bidang **Teknologi Informasi**, **Telekomunikasi**, **Internet of Things (IoT)**, dan **Pengembangan Web**.
 
 ---
@@ -46,10 +46,9 @@ Berikut beberapa proyek yang telah saya dokumentasikan:
 
 ## 📫 Kontak
 Jika ingin berdiskusi atau berkolaborasi, silakan hubungi saya melalui:
-- 📧 Email: **  
 - 💼 LinkedIn: [linkedin.com/in/muhammad-rizki-akbar](https://linkedin.com/in/muhammad-rizki-akbar)
 
 ---
 
 > “Learning by doing — karena setiap baris kode adalah bagian dari perjalanan.”  
-> — Muhammad Rizki Akbarss
+> — Muhammad Rizki Akbar

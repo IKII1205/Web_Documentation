@@ -1,8 +1,9 @@
 ---
 title: IOT
-nav_order: 4
+nav_order: 3
+has_children: true
 ---
 
-# Daftar Research seputar Open optical network
+# Daftar Dokumentasi seputar IoT
 
-Berikut adalah dokumentasi Research yang tersedia:
+Berikut adalah dokumentasi Internet of Things (IoT), sensor, dan Smart Farming yang tersedia:

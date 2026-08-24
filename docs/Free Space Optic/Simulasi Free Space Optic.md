@@ -2,7 +2,7 @@
 title: Simulasi FSO menggunakan modul IR
 parent: Free Space Optic
 author: Muhammad Rizki Akbar 
-nav_order: 1
+nav_order: 2
 ---
 
 # Simulasi Free Space Optic (FSO) dengan ESP32 & IR

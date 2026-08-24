@@ -2,77 +2,64 @@
 title: Perbedaan kabel optik simplex dan duplex
 parent: Open Optical Network
 author: Muhammad Rizki Akbar 
-nav_order: 1
+nav_order: 6
 ---
 
 # Perbedaan Kabel Optik: Simplex vs Duplex
 
-## Pengertian singkat
-Kabel optik (fiber optik) adalah media transmisi yang menggunakan kaca atau plastik untuk meneruskan sinyal berupa cahaya. Kabel ini memungkinkan pengiriman data berkecepatan tinggi dan jarak jauh dengan gangguan elektromagnetik yang sangat rendah.
+## Pengertian Singkat
+Kabel optik (*fiber optic*) adalah media transmisi yang menggunakan serat kaca atau plastik untuk meneruskan sinyal berupa cahaya. Kabel ini memungkinkan pengiriman data berkecepatan tinggi dan jarak jauh dengan gangguan elektromagnetik yang sangat rendah.
 
-Dalam konteks koneksi data, istilah *simplex* dan *duplex* merujuk pada cara aliran sinyal:
-- Simplex: komunikasi satu arah saja (A → B).
-- Duplex: komunikasi dua arah. Ada dua jenis duplex:
-  - Half-duplex: kedua arah tetapi tidak bersamaan (A ↔ B bergantian).
-  - Full-duplex: kedua arah secara bersamaan (A ↔ B secara paralel).
+Dalam konteks koneksi data, istilah *simplex* dan *duplex* merujuk pada arah aliran sinyal:
+- **Simplex:** Komunikasi satu arah saja (A → B).
+- **Duplex:** Komunikasi dua arah. Terbagi menjadi:
+  - *Half-duplex:* Kedua arah tetapi bergantian (A ↔ B tidak simultan).
+  - *Full-duplex:* Kedua arah secara simultan (A ↔ B bersamaan secara paralel).
 
 ---
 
-## Struktur fisik & cara kerja
-- Kabel optik simplex biasanya hanya memiliki satu serat inti. Cocok untuk aplikasi yang hanya membutuhkan transmisi satu arah (mis. satu arah telemetry).
-- Kabel optik duplex memiliki dua serat inti — satu untuk masing-masing arah — sehingga mendukung komunikasi dua arah tanpa harus bergantian.
+## Struktur Fisik & Cara Kerja
+- **Kabel Optik Simplex:** Hanya memiliki satu inti serat (*single core*). Sangat cocok untuk aplikasi yang hanya membutuhkan pengiriman data satu arah (misalnya sensor telemetri satu arah).
+- **Kabel Optik Duplex:** Memiliki dua inti serat (*dual core* / zipcord) — satu untuk jalur kirim (TX) dan satu untuk jalur terima (RX) — sehingga mendukung komunikasi dua arah simultan.
 
 Secara ringkas:
-- Simplex = 1 serat = 1 arah.
-- Duplex = 2 serat = 2 arah (simultan).
+- **Simplex** = 1 serat = 1 arah.
+- **Duplex** = 2 serat = 2 arah (simultan).
 
 ---
 
-## Kelebihan dan kekurangan (perbandingan)
+## Perbandingan Kelebihan & Kekurangan
 
-Kelebihan kabel optik secara umum:
-- Bandwidth sangat besar → cocok untuk data berkecepatan tinggi.
-- Imunitas terhadap noise elektromagnetik.
-- Aman karena sulit disadap dan tidak membawa arus listrik.
-- Ringan dan relatif kecil dibandingkan kabel tembaga.
+### Kelebihan Kabel Optik secara Umum:
+- Bandwidth sangat besar (cocok untuk data kecepatan tinggi).
+- Kebal terhadap interferensi gelombang elektromagnetik (*EMI*).
+- Sangat aman dari penyadapan fisik konvensional.
+- Bobot ringan dan dimensi kabel relatif kecil.
 
-Kekurangan kabel optik:
-- Rentan terhadap kerusakan mekanis bila tidak ditangani hati-hati.
-- Instalasi dan penyambungan memerlukan keterampilan khusus.
-- Tidak dapat menyalurkan energi listrik.
-- Biaya material dan alat sambung relatif lebih tinggi.
+### Kekurangan Kabel Optik:
+- Rentan patah jika ditekuk melebihi batas radius tekukan (*bending radius*).
+- Pemasangan dan *splicing* memerlukan alat khusus (*fusion splicer*).
+- Tidak dapat mengalirkan daya listrik (*non-conductive*).
 
-Perbedaan simplex vs duplex:
-- Simplex: lebih murah, lebih sederhana, cocok untuk link satu arah.
-- Duplex: fleksibel untuk komunikasi dua arah; butuh dua jalur fisik, sedikit lebih mahal dan lebih besar ukurannya.
-
----
-
-## Contoh penggunaan
-- Simplex: sistem monitoring sensor yang hanya mengirim data ke pusat (data flow satu arah).
-- Duplex (full-duplex): link jaringan antara switch/router atau perangkat yang saling bertukar data simultan.
-- Duplex (half-duplex): beberapa sistem radio/data legacy yang bergantian kirim-terima.
+### Perbedaan Simplex vs Duplex:
+- **Simplex:** Biaya lebih hemat, instalasi kabel lebih tipis/sederhana, cocok untuk komunikasi searah.
+- **Duplex:** Menghubungkan komunikasi dua arah penuh dengan throughput tinggi, memerlukan 2 konektor (misal LC Duplex / SC Duplex).
 
 ---
 
-## Instalasi dan praktik terbaik
-- Hindari menekuk serat melebihi radius minimum (baca datasheet), karena dapat menyebabkan loss.
-- Gunakan connector dan splice berkualitas; pembersihan konektor penting untuk menghindari refleksi dan loss.
-- Label setiap serat dengan jelas sehingga arah transmisi diketahui (penting untuk duplex).
-- Gunakan pelindung (armoring) atau ducting jika kabel ditanam atau di-area luar ruangan.
- 
-
-## Referensi & bacaan lanjutan
--> [datasheet YSP96](https://www.bing.com/search?qs=UT&pq=apa+itu+kabel+serat+opti&sk=CSYN1&sc=15-24&pglt=2339&q=apa+itu+kabel+serat+optik&cvid=f2378f89e53d48a8a2a79318c4ca0fd2&gs_lcrp=EgRlZGdlKgYIABAAGEAyBggAEAAYQDIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQg2MDk0ajBqMagCALACAA&FORM=ANNTA1&PC=ASTS)
+## Contoh Penggunaan
+- **Simplex:** Sistem sensor/telemetri yang hanya memancarkan data ke stasiun penerima.
+- **Duplex (Full-Duplex):** Interkoneksi switch-to-switch, router-to-server, dan modul transceiver optik (SFP/SFP+/QSFP).
 
 ---
-Kesimpulan: Pilih simplex jika kebutuhan hanya satu arah dan ingin solusi sederhana/hemat. Pilih duplex untuk komunikasi dua arah (kinerja dan fleksibilitas lebih baik), terutama pada infrastruktur jaringan.
 
+## Praktik Terbaik Instalasi
+- Hindari menekuk kabel melebihi batas kelengkungan minimum (*minimum bend radius*).
+- Gunakan konektor dan sambungan (*splice*) berkualitas, serta selalu bersihkan ujung ferrule sebelum dicolokkan untuk menghindari *insertion loss*.
+- Beri label (*tagging*) yang jelas pada serat TX dan RX agar tidak tertukar saat patching.
+- Gunakan pelindung tambahan (*armored fiber / conduit*) untuk penanaman kabel di luar ruangan (*outdoor*).
 
+---
 
-
-
-
-
-
-
+## Kesimpulan
+Pilih **Simplex** jika kebutuhan transmisi hanya satu arah dan ingin solusi paling hemat. Pilih **Duplex** untuk komunikasi jaringan dua arah dengan keandalan dan fleksibilitas performa tinggi.

@@ -58,148 +58,198 @@ Kode berikut memperlihatkan alur pembacaan DHT22 dan sensor RS485 7-in-1 Soil Se
 ```cpp
 #define BLYNK_TEMPLATE_ID "YOUR_TEMPLATE_ID" 
 #define BLYNK_TEMPLATE_NAME "DHT22"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-#define BLYNK_PRINT Serial (Dari bagian "BLYNK_TEMPLATE_ID" sampai dengan "BLYNK_PRINT Serial" itu bisa rekan rekan ambil dari website blynk langsung)
+#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN" (Dari bagian "BLYNK_TEMPLATE_ID" sampai dengan "BLYNK_AUTH_TOKEN" itu bisa rekan rekan ambil dari website blynk langsung)
+
+#define BLYNK_PRINT Serial
 
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
 #include <DHT.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
 
-// ===== KONFIGURASI SENSOR DHT22 =====
+char auth[] = BLYNK_AUTH_TOKEN;
+// ===== KONFIGURASI WIFI =====
+char* ssid = "YOUR_WIFI_SSID";
+char* pass = "YOUR_WIFI_PASSWORD";
+
 #define DHTPIN 4  
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
-// ===== KONFIGURASI RS485 =====
 #define RX_PIN 16    
 #define TX_PIN 17  
 #define RE_DE_PIN 5 
 
-// ===== KONFIGURASI WIFI =====
-const char* ssid = "YOUR_WIFI_SSID";
-const char* pass = "YOUR_WIFI_PASSWORD";
+LiquidCrystal_I2C lcd(0x27, 20, 4);
+BlynkTimer timer;
 
-// ===== MODBUS REQUEST FRAME RS485 =====
 const byte requestFrame[] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x07, 0x04, 0x08};
 byte responseFrame[19];
 
-float humidity_dht = 0, temperature_dht = 0;
-float soil_moisture = 0, soil_temperature = 0, soil_ph = 0;
-int soil_ec = 0, nitrogen = 0, phosphorus = 0, potassium = 0;
+void bacaSensor() {
+  float hum = dht.readHumidity();
+  float temp = dht.readTemperature();
 
-void setup() {
-  Serial.begin(9600);
-  dht.begin();
-  
-  // Coba ganti ke 9600 jika 4800 tetap "Byte: 0"
-  Serial2.begin(4800, SERIAL_8N1, RX_PIN, TX_PIN);
-  
-  pinMode(RE_DE_PIN, OUTPUT);
-  digitalWrite(RE_DE_PIN, LOW);
-  
-  Serial.println("\n\n====================================");
-  Serial.println("Inisialisasi ESP32 IoT Sensor");
-  Serial.println("====================================");
-  
-  // Perbaikan cara panggil Blynk agar tidak error port
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
-}
+  Serial.println("----- Pembacaan Sensor DHT22 -----");
 
-void loop() {
-  if (Blynk.connected()) {
-    Blynk.run();
+  if (isnan(hum) || isnan(temp)) {
+    Serial.println("Gagal membaca sensor DHT22! Cek kabel.");
+  } else {
+    Serial.print("Humidity: ");
+    Serial.print(hum);
+    Serial.println(" %");
+    Serial.print("Temp: ");
+    Serial.print(temp);
+    Serial.println(" Celsius");
+    
+    Blynk.virtualWrite(V1, temp);
+    Blynk.virtualWrite(V2, hum);
   }
-  
-  readDHT22();
-  readRS485();
-  sendDataToBlynk();
-  printSensorData();
-  
-  delay(3000);
-}
+  Serial.println();
 
-void readDHT22() {
-  humidity_dht = dht.readHumidity();
-  temperature_dht = dht.readTemperature();
-  if (isnan(humidity_dht) || isnan(temperature_dht)) {
-    Serial.println("✗ Gagal membaca sensor DHT22!");
+  while (Serial2.available()) {
+    Serial2.read();
   }
-}
 
-void readRS485() {
-  while (Serial2.available()) { Serial2.read(); }
-  
   digitalWrite(RE_DE_PIN, HIGH);
-  delay(10);
+  delay(10); 
+
   Serial2.write(requestFrame, sizeof(requestFrame));
   Serial2.flush();
+
   digitalWrite(RE_DE_PIN, LOW);
-  
-  delay(500); // Ditambah sedikit biar sensor sempat mikir
-  
+  delay(200);
+
+  Serial.println("----- Pembacaan Sensor RS485 -----");
   if (Serial2.available() >= 19) {
     for (int i = 0; i < 19; i++) {
       responseFrame[i] = Serial2.read();
     }
-    
-    if (responseFrame[0] == 0x01 && responseFrame[1] == 0x03) {
-      soil_moisture = ((responseFrame[3] << 8) | responseFrame[4]) / 10.0;
-      soil_temperature = ((responseFrame[5] << 8) | responseFrame[6]) / 10.0;
-      soil_ec = (responseFrame[7] << 8) | responseFrame[8];
-      soil_ph = ((responseFrame[9] << 8) | responseFrame[10]) / 10.0;
-      nitrogen = (responseFrame[11] << 8) | responseFrame[12];
-      phosphorus = (responseFrame[13] << 8) | responseFrame[14];
-      potassium = (responseFrame[15] << 8) | responseFrame[16];
+  
+    if (responseFrame[0] == 0x01 && responseFrame[1] == 0x03 && responseFrame[2] == 0x0E) {
+      
+      int humidity = (responseFrame[3] << 8) | responseFrame[4];
+      int temperature = (responseFrame[5] << 8) | responseFrame[6];
+      int ec = (responseFrame[7] << 8) | responseFrame[8];
+      int ph = (responseFrame[9] << 8) | responseFrame[10];
+      int nitrogen = (responseFrame[11] << 8) | responseFrame[12];
+      int phosphorus = (responseFrame[13] << 8) | responseFrame[14];
+      int potassium = (responseFrame[15] << 8) | responseFrame[16];
+
+      float soilHum = humidity / 10.0;
+      float soilTemp = temperature / 10.0;
+      float soilPh = ph / 10.0;
+
+      Serial.print("Kelembaban (Moisture): "); Serial.print(soilHum); Serial.println(" %");
+      Serial.print("Suhu (Temperature)   : "); Serial.print(soilTemp); Serial.println(" C");
+      Serial.print("Konduktivitas (EC)   : "); Serial.print(ec); Serial.println(" us/cm");
+      Serial.print("pH Tanah             : "); Serial.print(soilPh); Serial.println("");
+      Serial.print("Nitrogen (N)         : "); Serial.print(nitrogen); Serial.println(" mg/kg");
+      Serial.print("Fosfor (P)           : "); Serial.print(phosphorus); Serial.println(" mg/kg");
+      Serial.print("Kalium (K)           : "); Serial.print(potassium); Serial.println(" mg/kg");
+
+      Blynk.virtualWrite(V3, soilTemp);
+      Blynk.virtualWrite(V4, soilHum);
+      Blynk.virtualWrite(V5, soilPh);
+      Blynk.virtualWrite(V6, ec);
+      Blynk.virtualWrite(V7, nitrogen);
+      Blynk.virtualWrite(V8, phosphorus);
+      Blynk.virtualWrite(V9, potassium);
+
+      lcd.clear();
+      
+      lcd.setCursor(0, 0);
+      if (isnan(hum) || isnan(temp)) {
+        lcd.print("Udara: Error");
+      } else {
+        lcd.print("Udara: ");
+        lcd.print(temp, 1);
+        lcd.print("C ");
+        lcd.print(hum, 1);
+        lcd.print("%");
+      }
+
+      lcd.setCursor(0, 1);
+      lcd.print("Tanah: ");
+      lcd.print(soilTemp, 1);
+      lcd.print("C ");
+      lcd.print(soilHum, 1);
+      lcd.print("%");
+
+      lcd.setCursor(0, 2);
+      lcd.print("pH: ");
+      lcd.print(soilPh, 1);
+      lcd.print("  EC: ");
+      lcd.print(ec);
+
+      lcd.setCursor(0, 3);
+      lcd.print("N:");
+      lcd.print(nitrogen);
+      lcd.print(" P:");
+      lcd.print(phosphorus);
+      lcd.print(" K:");
+      lcd.print(potassium);
+
+    } else {
+      Serial.println("Data korup atau frame tidak sesuai.");
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Error: Data Tanah");
     }
   } else {
-    Serial.print("⚠ RS485 tidak merespon. Byte diterima: ");
+    Serial.print("Sensor tidak merespon dengan benar. Byte diterima: ");
     Serial.println(Serial2.available());
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Error: Sensor Mati");
   }
-}
-
-void sendDataToBlynk() {
-  if (Blynk.connected()) {
-    Blynk.virtualWrite(V0, humidity_dht);
-    Blynk.virtualWrite(V1, temperature_dht);
-    Blynk.virtualWrite(V2, soil_moisture);
-    Blynk.virtualWrite(V3, soil_temperature);
-    Blynk.virtualWrite(V4, soil_ec);
-    Blynk.virtualWrite(V5, soil_ph);
-    Blynk.virtualWrite(V6, nitrogen);
-    Blynk.virtualWrite(V7, phosphorus);
-    Blynk.virtualWrite(V8, potassium);
-  }
-}
-
-void printSensorData() {
-  Serial.println("\n--------- DATA SENSOR DHT22 ---------");
-  Serial.print("Humidity  : "); Serial.print(humidity_dht); Serial.println(" %");
-  Serial.print("Temperature : "); Serial.print(temperature_dht); Serial.println(" °C");
   
-  Serial.println("\n--------- DATA SENSOR RS485 ---------");
-  Serial.print("Soil Moisture : "); Serial.print(soil_moisture); Serial.println(" %");
-  Serial.print("Soil Temperature : "); Serial.print(soil_temperature); Serial.println(" °C");
-  Serial.print("Soil EC : "); Serial.print(soil_ec); Serial.println(" us/cm");
-  Serial.print("Soil pH : "); Serial.println(soil_ph);
-  Serial.print("Nitrogen (N) : "); Serial.print(nitrogen); Serial.println(" mg/kg");
-  Serial.print("Phosphorus (P) : "); Serial.print(phosphorus); Serial.println(" mg/kg");
-  Serial.print("Potassium (K) : "); Serial.print(potassium); Serial.println(" mg/kg");
-  Serial.println("\n========================================\n");
+  Serial.println("\n=========================================\n");
 }
 
-BLYNK_CONNECTED() {
-  Serial.println("✓ Connected to Blynk Server!");
+void setup() {
+  Serial.begin(9600); 
+  
+  dht.begin();
+  Serial2.begin(4800, SERIAL_8N1, RX_PIN, TX_PIN);   
+  
+  pinMode(RE_DE_PIN, OUTPUT);
+  digitalWrite(RE_DE_PIN, LOW); 
+  
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Menghubungkan WiFi");
+  lcd.setCursor(0, 1);
+  lcd.print("Sistem Inisialisasi");
+
+  Blynk.begin(auth, ssid, pass);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("WiFi & Blynk OK");
+  delay(1500);
+  lcd.clear();
+
+  timer.setInterval(3000L, bacaSensor);
 }
+
+void loop() {
+  Blynk.run();
+  timer.run();
+}
+
 ```
 
 Penjelasan ringkas alur kode:
 
-- DHT22 dibaca lewat library DHT dan menghasilkan suhu serta kelembapan udara
-- RS485 dibaca lewat Serial2 menggunakan frame Modbus RTU
-- data sensor tanah dipetakan ke variabel moisture, temperature, EC, pH, N, P, dan K
-- hasil pembacaan dikirim ke Blynk menggunakan virtual pin V0 sampai V8
-- Serial Monitor dipakai untuk debugging dan melihat nilai sensor secara lokal
+- DHT22 dibaca lewat library DHT dan menghasilkan suhu serta kelembapan udara.
+- RS485 dibaca lewat Serial2 menggunakan frame Modbus RTU.
+- Data sensor tanah dipetakan ke variabel moisture, temperature, EC, pH, N, P, dan K.
+- Hasil pembacaan dikirim ke Blynk menggunakan virtual pin (contoh: V1–V9).
+- Serial Monitor dan LCD I2C digunakan untuk debugging dan menampilkan pembacaan secara lokal, berguna ketika WiFi atau Blynk tidak terhubung.
 
 ## Penjelasan singkat tiap sensor
 ### DHT22
